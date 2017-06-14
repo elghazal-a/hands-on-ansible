@@ -1,0 +1,13 @@
+[webservers]
+web ansible_host=192.168.30.10 
+
+[dbservers]
+db ansible_host=192.168.30.20
+
+[datacenter:children]
+webservers
+dbservers
+
+[datacenter:vars]
+ansible_user=vagrant
+ansible_ssh_pass=vagrant
