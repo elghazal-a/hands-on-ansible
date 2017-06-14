@@ -1,0 +1,7 @@
+---
+- name: Ensure Mysql is installed
+  yum: name=mysql-server state=present
+  when: ansible_os_family == "RedHat"
+
+- name: Start Mysql
+  service: name=mysqld enabled=yes state=started

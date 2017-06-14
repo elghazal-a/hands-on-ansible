@@ -1,0 +1,7 @@
+---
+- hosts: webservers
+  name: webservers provisioning
+  remote_user: root
+  become: yes
+  roles:
+    - webserver

@@ -1,0 +1,17 @@
+---
+- hosts: webservers:dbservers
+  name: webservers provisioning
+  remote_user: root
+  become: yes
+  roles:
+    - server-common
+
+- include: webservers.pb.yml
+- include: dbservers.pb.yml
+
+- hosts: webservers:dbservers
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Stop IPTABLES
+      service: name=iptables state=stopped
